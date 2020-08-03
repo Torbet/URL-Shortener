@@ -1,1 +1,0 @@
-{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,EACI,qBAAsB,CACtB,SAAU,CACV,QAAS,CACT,sCACJ,CAEA,GACI,iBAAkB,CAClB,cACJ","file":"main.7de68fe7.chunk.css","sourcesContent":["* {\n    box-sizing: border-box;\n    padding: 0;\n    margin: 0;\n    font-family: Arial, Helvetica, sans-serif;\n}\n\nh1 {\n    text-align: center;\n    margin-top: 3vh;\n}"]}
