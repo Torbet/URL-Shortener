@@ -4,15 +4,18 @@ const fs = require('fs')
 const https = require('https');
 const path = require('path')
 
-const options = {
-    key: fs.readFileSync('./key.pem'),
-    cert: fs.readFileSync('./cert.pem')
-  };
-  
-var server = https.createServer(options, app).listen(8000)
-
 const app = express()
+
 const port = process.env.PORT || 8000
+  
+var server = https.createServer({
+    key: fs.readFileSync('ssl/server.key'),
+    cert: fs.readFileSync('ssl/server.pem')
+  }, app)
+  .listen(port, function () {
+    console.log('running')
+  })
+
 var data = JSON.parse(fs.readFileSync('./urls.json', 'utf8'))
 
 function getValue(value) {
