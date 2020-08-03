@@ -1,7 +1,15 @@
 const express = require('express')
 const ws = require('ws')
 const fs = require('fs')
+const https = require('https');
 const path = require('path')
+
+const options = {
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem')
+  };
+  
+var server = https.createServer(options, app).listen(8000)
 
 const app = express()
 const port = process.env.PORT || 8000
@@ -40,8 +48,6 @@ app.use('/', express.static(path.join(__dirname, '../client/build')))
 app.get('/:slug', function(req, res) {
     res.redirect(getURL((req.path).substr(1)))
 })
-
-var server = app.listen(port, console.log(`listening on port ${port}`))
 
 var wss = new ws.Server({ server }) 
 
