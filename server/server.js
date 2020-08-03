@@ -8,13 +8,13 @@ const app = express()
 
 const port = process.env.PORT || 8000
   
-/*var server = https.createServer({
-    key: fs.readFileSync('ssl/server.key'),
-    cert: fs.readFileSync('ssl/server.pem')
+var server = https.createServer({
+    key: fs.readFileSync('/etc/ssl/private/key.pem'),
+    cert: fs.readFileSync('/etc/ssl/certs/cert.pem')
   }, app)
   .listen(port, function () {
     console.log('running')
-  }) */
+  }) 
 
 var server = app.listen(port)
 
