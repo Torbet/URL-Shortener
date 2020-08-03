@@ -21,9 +21,9 @@ const buttonStyle = {
     fontSize: '150%'
 }
 
-const wshost = window.location.origin.replace(/^http/, 'ws')
+//const wshost = window.location.origin.replace(/^http/, 'ws')
 
-var socket = new WebSocket(wshost);
+var socket = new WebSocket('ws://81.141.3.17:8000');
 
 function App() {
 
