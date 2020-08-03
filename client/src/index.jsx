@@ -23,7 +23,7 @@ const buttonStyle = {
 
 //const wshost = window.location.origin.replace(/^http/, 'ws')
 
-var socket = new WebSocket('ws://81.141.3.17:8080');
+var socket = new WebSocket('ws://localhost:8080');
 
 function App() {
 

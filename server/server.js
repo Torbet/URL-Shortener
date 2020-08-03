@@ -16,7 +16,7 @@ const port = process.env.PORT || 8000
     console.log('running')
   }) */
 
-var server = app.listen(port)
+var server = app.listen(port, console.log(`listening on port${port}`))
 
 var data = JSON.parse(fs.readFileSync('./urls.json', 'utf8'))
 
@@ -57,6 +57,8 @@ app.get('/:slug', function(req, res) {
 var wss = new ws.Server({ port: 8080 }) 
 
 wss.on('connection', function(socket) {
+
+    console.log('connection')
 
     socket.on('message', function(data) {
         var slug = genSlug()
