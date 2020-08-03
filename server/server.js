@@ -54,7 +54,7 @@ app.get('/:slug', function(req, res) {
     res.redirect(getURL((req.path).substr(1)))
 })
 
-var wss = new ws.Server({ server }) 
+var wss = new ws.Server({ port: 8080 }) 
 
 wss.on('connection', function(socket) {
 
