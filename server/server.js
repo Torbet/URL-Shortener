@@ -8,15 +8,15 @@ const app = express()
 
 const port = process.env.PORT || 8000
   
-/* var server = https.createServer({
+var server = https.createServer({
     key: fs.readFileSync('/etc/ssl/private/key.pem'),
     cert: fs.readFileSync('/etc/ssl/certs/cert.pem')
   }, app)
   .listen(port, function () {
     console.log('running')
-  }) */
+  })
 
-var server = app.listen(port, console.log(`listening on port${port}`))
+app.listen(port, console.log(`listening on port${port}`))
 
 var data = JSON.parse(fs.readFileSync('./urls.json', 'utf8'))
 
@@ -54,7 +54,7 @@ app.get('/:slug', function(req, res) {
     res.redirect(getURL((req.path).substr(1)))
 })
 
-var wss = new ws.Server({ port: 8080 }) 
+var wss = new ws.Server({ server: server }) 
 
 wss.on('connection', function(socket) {
 
